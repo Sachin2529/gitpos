@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Button } from 'react-native';
 import { db } from './firebaseConfig';
+import auth from '@react-native-firebase/auth';
 
 const InventoryScreen = ({ navigation })  => {
   const [inventory, setInventory] = useState([]);
@@ -17,10 +18,16 @@ const InventoryScreen = ({ navigation })  => {
     await db.collection('inventory').doc(id).update({ stock: stock + 1 }); 
   };
 
+  const handleLogout = () => {
+    auth().signOut();
+  };
+
   return (
     <View>
       <Button title="Go to Sales" onPress={() => navigation.navigate('Sales')} />
       <Button title="Go to SALEShistory" onPress={() => navigation.navigate('OrderHistoryScreen')} />
+      <Button title="Dashboard" onPress={() => navigation.navigate('Dashboard')} />
+      <Button title="Logout" onPress={handleLogout} />   
       <FlatList
         data={inventory}
         keyExtractor={(item) => item.id}
@@ -31,6 +38,7 @@ const InventoryScreen = ({ navigation })  => {
           </View>
         )}
       />
+      <Button title="Logout" onPress={handleLogout} />  
     </View>
   );
 };
