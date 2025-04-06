@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "^8.3.0",
     "@react-native-firebase/app": "^21.12.0",
     "@react-native-firebase/auth": "^21.12.0",
     "@react-native-firebase/firestore": "^21.12.0",
@@ -42,22 +43,8 @@
     "prettier": "2.8.8",
     "react-test-renderer": "19.0.0",
     "typescript": "5.0.4"
-    
   },
   "engines": {
     "node": ">=18"
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
- 
